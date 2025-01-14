@@ -1,3 +1,7 @@
+import { FaSearch } from "react-icons/fa";
+import MovieCard from "./../Components/MovieCard";
+import { useState } from "react";
+import Navmenu from "../Components/Navmenu"
 import img1 from "../assets/movie1.png"
 import img2 from "../assets/movie2.png"
 import img3 from "../assets/movie3.png"
@@ -14,8 +18,6 @@ import img13 from "../assets/movie13.png"
 import img14 from "../assets/movie14.png"
 import img15 from "../assets/movie15.png"
 
-import MovieCard from "./../Components/MovieCard";
-import { useState } from "react";
 
 function Home() {
   const [search, setSearch] = useState("");
@@ -122,11 +124,15 @@ function Home() {
 
   return (
     <div className="home bg-gray-900 text-white min-h-screen px-10 pb-20">
-      <div className="flex justify-between items-center py-10 px-10">
-      <h1 className="text-3xl font-bold mb-10 text-center capitalize">all Movies</h1>
+      <div className="flex justify-end items-center pt-10 px-10">
+      <Navmenu/>
+      </div>
+      <div className="flex justify-between items-center py-10 px-10"> 
+      <h1 className="text-3xl font-medium mb-0 text-center capitalize">all <span className="text-red-600">Movies</span></h1>
       <form onSubmit={handleSearch} className="search-form flex items-center justify-center">
-        <input type="text" placeholder="Search movie" value={search} onChange={(e) => setSearch(e.target.value)} className="search-input p-2 rounded-l-md text-black w-64 focus:outline-none"/>
-        <button type="submit" className="search-button bg-red-600 text-white p-2 rounded-r-md text-base font-medium">Search</button>
+        <div className="relative">
+          <input type="text"placeholder="Search movie" value={search} onChange={(e) => setSearch(e.target.value)} className="search-input p-2 pr-10 rounded-md text-black w-64 focus:outline-none"/><FaSearch className="absolute right-3 top-1/2 transform -translate-y-1/2 text-red-600" />
+        </div>
       </form>
 
       </div>
