@@ -14,11 +14,11 @@ const FavoritesPage = () => {
             <li key={movie.id} className="bg-gray-800 rounded-lg shadow-md overflow-hidden">
               <img src={movie.url} alt={movie.title} className="w-full h-96 object-cover cursor-pointer" 
               onClick={() => navigate(`/movie/${movie.id}`, { state: { movie } })}/>
-              <div className="flex justify-between items-center p-6">
+              <div className="flex justify-between items-center pt-6 px-6">
               <h2 className="text-xl font-bold">{movie.title}</h2>
               <p className="text-gray-400">{movie.release_date}</p>
               </div>
-              <div className="flex justify-end items-center p-6">
+              <div className="flex justify-end items-center px-6 py-6">
               <button className="bg-red-600 text-white hover:bg-red-700 text-sm font-bold py-2 px-4 rounded-md mt-5 capitalize" onClick={() => removeFavorite(movie.id)}>Remove</button>
               </div>
             </li>
